@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Submit Feedback Form" type="Message" state="Success" icon="sap-icon://hint">
+		<Text text="Do you really want to submit your feedback?" />
+		<buttons>
+			<Button text="Cancel"  press="onSubmitCancelPress" />	
+			<Button text="Submit" type="Emphasized" press="onSubmitOKPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

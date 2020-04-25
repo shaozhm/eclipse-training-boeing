@@ -1,0 +1,48 @@
+<mvc:View
+    controllerName="boeing.poc.Utilization.controller.ReservationDetail"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true"
+	height="100%">
+	<Page title="{i18n>TIT_RESERVATION_DETAIL_PAGE_TITLE}"
+	    showNavButton="true"
+		showHeader="true"
+		showSubHeader="true"
+		enableScrolling="true"
+		navButtonPress="onNavBack">
+        <ObjectHeader
+		    title="R00001"
+			number="Planned"
+      numberState="Success"
+			icon="sap-icon://appointment"
+			backgroundDesign="Translucent"
+			titleLevel="H1">
+			<attributes>
+				<ObjectAttribute text="{i18n>LABEL_START_TIME}" />
+				<ObjectAttribute text="{i18n>LABEL_END_TIME}" />
+				<ObjectAttribute text="{i18n>LABEL_ASSET_ID}" />
+				<ObjectAttribute text="{i18n>LABEL_PICKUP_LOC}" />
+				<!-- ObjectAttribute text="{i18n>LABEL_STATUS}" / -->
+		    </attributes>
+			<statuses>
+				<ObjectStatus text="06-12 10:00" />
+				<ObjectStatus text="06-12 22:00" />
+				<ObjectStatus text="Van 34045" />
+				<ObjectStatus text="Everett Build 40-25" />
+				<!-- ObjectStatus text="Planned" state="Success"/ -->
+			</statuses>
+		</ObjectHeader>
+		<footer>
+			<OverflowToolbar width="100%" visible="true" design="Auto">
+				<ToolbarSpacer/>
+				<Button
+					text="{i18n>BTN_CHECK_ASSET}"
+					type="Emphasized"
+					iconFirst="true"
+					press="onCheck"/>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

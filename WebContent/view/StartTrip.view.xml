@@ -1,0 +1,53 @@
+<mvc:View controllerName="boeing.poc.Utilization.controller.StartTrip" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page title="{i18n>TIT_START_TRIP_PAGE_TITLE}"  enableScrolling="true" showNavButton="true" navButtonPress="onNavBack">
+		<content >
+			<!-- ObjectHeader
+				icon="sap-icon://appointment"
+				title="{i18n>LABEL_TRIP_ID}"
+				backgroundDesign="Solid"
+				number="R00001"
+				numberUnit=""
+				numberState="Success" -->
+				<ObjectHeader icon="sap-icon://appointment" title="R00001"
+					backgroundDesign="Solid"
+					number="{path:'page>/reservationDetails/status'}"
+					numberUnit=""
+					numberState="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusState'}">
+				<attributes>
+					<ObjectAttribute text="{i18n>LABEL_GAS_USED}" />
+					<ObjectAttribute text="{i18n>LABEL_DISTANCE}" />
+					<ObjectAttribute text="{i18n>LABEL_DURING}" />
+					<ObjectAttribute text="{i18n>LABEL_STATUS}" />
+					<!-- ObjectAttribute text="{i18n>LABEL_TICKET}"/ -->
+				</attributes>
+				<statuses>
+
+					<ObjectStatus text="{path:'page>/reservationDetails/gasUsed'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/distance'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/during'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/status'}"
+						state="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusState'}"
+						icon="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusIcon'}" />
+					<!--ObjectStatus text="T0000001"/ -->
+				</statuses>
+			</ObjectHeader>
+			<List headerText="Pre-inspection checklist" items="{path:'checkList>/list'}" >
+				<InputListItem label="{checkList>title}">
+					<Switch state="{checkList>checkState}" type= "AcceptReject" change="changeSwitch"/>
+				</InputListItem>
+			</List>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>BTN_REQUEST_ASSISTANCE}" type="Reject" enabled="true" press="onRequestAsstPress"/>
+				<Button text="{i18n>BTN_CHECK_IN}" type="Emphasized" enabled="{path:'page>/checkinButtonEnabled'}" press="onCheckInPress"/>
+			</Toolbar>
+		</footer>
+	</Page>
+
+
+</mvc:View>

@@ -1,0 +1,55 @@
+<mvc:View controllerName="boeing.poc.Utilization.controller.CreateTicket" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core"
+  xmlns:l="sap.ui.layout" xmlns:form="sap.ui.layout.form">
+  	<Page title="{i18n>TIT_CREATE_TICKET_PAGE_TITLE}"  enableScrolling="true" showNavButton="true" navButtonPress="onNavBack">
+  		<content>
+  			<form:Form id="ticketForm" xmlns="sap.ui.layout" busy="false" busyIndicatorDelay="1000" visible="true" width="" editable="">
+  				<form:formContainers>
+  					 <form:FormContainer xmlns="sap.ui.layout" expanded="true" expandable="false" visible="true">
+  						<form:formElements>
+  							<form:FormElement xmlns="sap.ui.layout" visible="true" label="{i18n>LABEL_TYPE}" >
+  								<form:fields>
+								  	<ComboBox xmlns="sap.m" placeholder="{i18n>TOL_PLEASE_CHOOSE_TICKET_TYPE}" items="{path: 'page>/typelist'}" required= "true">
+                        <core:Item key="{page>key}" text="{page>text}" />
+  									</ComboBox>
+  								</form:fields>
+  							</form:FormElement>
+                <form:FormElement xmlns="sap.ui.layout" visible="true" label="{i18n>LABEL_PRIORITY}" >
+  								<form:fields>
+  									<ComboBox xmlns="sap.m" placeholder="{i18n>TOL_PLEASE_SELECT_PRIORITY}" items="{path: 'page>/prioritylist'}" required= "true">
+                        <core:Item key="{page>key}" text="{page>text}" />
+  									</ComboBox>
+  								</form:fields>
+  							</form:FormElement>
+  							<form:FormElement xmlns="sap.ui.layout" visible="true" label="{i18n>LABEL_DESCRIPTION}" >
+  								<form:fields>
+  									<TextArea xmlns="sap.m" placeholder="{i18n>TOL_PLEASE_DESCRIBE_YOUR_PROBLEM}" liveChange="handleDescriptionInput" width="100%"/>
+  								</form:fields>
+  							</form:FormElement>
+
+                <form:FormElement xmlns="sap.ui.layout" visible="true" label="{i18n>LABEL_COMMENT}" >
+  								<form:fields>
+  									<TextArea xmlns="sap.m" placeholder="{i18n>TOL_PLEASE_LEAVE_YOUR_COMMENTS}" liveChange="handleCommentInput" width="100%"/>
+  								</form:fields>
+  							</form:FormElement>
+  						</form:formElements>
+  					 </form:FormContainer>
+  				</form:formContainers>
+  				<form:layout>
+  					<form:ResponsiveGridLayout xmlns="sap.ui.layout"
+  						visible="true" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+  						emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsL="2"
+  						columnsM="2" breakpointL="1024" breakpointM="600">
+  					</form:ResponsiveGridLayout>
+  				</form:layout>
+  			</form:Form>
+  		</content>
+      <footer>
+  			<Toolbar>
+  				<ToolbarSpacer/>
+  				<!--Button text="{i18n>BTN_CANCEL}" enabled="true" press="onCancelPress"/ -->
+  				<Button text="{i18n>BTN_SUBMIT}" type="Emphasized" press="onOkPress"/>
+  			</Toolbar>
+  		</footer>
+   </Page>
+</mvc:View>

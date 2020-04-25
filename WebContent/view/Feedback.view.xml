@@ -1,0 +1,70 @@
+<mvc:View controllerName="boeing.poc.Utilization.controller.Feedback" xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" displayBlock="true" height="100%">
+  <Page title="{i18n>TIT_FEEDBACK_PAGE_TITLE}" showNavButton="false"
+    showHeader="true" showSubHeader="true" enableScrolling="true"
+		navButtonPress="onNavBack">
+      <l:BlockLayout>
+        <l:BlockLayoutRow>
+          <l:BlockLayoutCell width="2" titleAlignment="Begin" class="sapUiMarginTopBottom">
+            <Text text="Q1: Asset usability satisfaction?"
+  						textDirection="Inherit" wrapping="true" textAlign="Begin" maxLines="100" />
+          </l:BlockLayoutCell>
+          <l:BlockLayoutCell width="2" titleAlignment="Begin" class="sapUiNoContentPadding sapUiMediumMarginBeginEnd">
+            <RatingIndicator enabled="true" maxValue="5" value="0" editable="true"
+              visualMode="Half"/>
+          </l:BlockLayoutCell>
+		   </l:BlockLayoutRow>
+
+       <l:BlockLayoutRow>
+         <l:BlockLayoutCell width="2" titleAlignment="Begin">
+           <Text text="Q2: Asset safty satisfaction?"
+             textDirection="Inherit" wrapping="true" textAlign="Begin" maxLines="100"/>
+         </l:BlockLayoutCell>
+         <l:BlockLayoutCell width="2" titleAlignment="Begin" class="sapUiNoContentPadding sapUiMediumMarginBeginEnd">
+           <RatingIndicator enabled="true" maxValue="5" value="0" editable="true"
+             visualMode="Half"/>
+         </l:BlockLayoutCell>
+      </l:BlockLayoutRow>
+
+      <l:BlockLayoutRow>
+        <l:BlockLayoutCell width="2" titleAlignment="Begin">
+          <Text text="Q3: Asset comfortable satisfaction?"
+            textDirection="Inherit" wrapping="true" textAlign="Begin" maxLines="100"/>
+        </l:BlockLayoutCell>
+        <l:BlockLayoutCell width="2" titleAlignment="Begin"  class="sapUiNoContentPadding sapUiMediumMarginBeginEnd">
+          <RatingIndicator enabled="true" maxValue="5" value="0" editable="true"
+            visualMode="Half"/>
+        </l:BlockLayoutCell>
+     </l:BlockLayoutRow>
+
+     <l:BlockLayoutRow >
+       <l:BlockLayoutCell width="2" titleAlignment="Begin" >
+         <Text text="Q4: Other feedback not in the list?"
+           textDirection="Inherit" wrapping="true" textAlign="Begin" maxLines="100"/>
+       </l:BlockLayoutCell>
+       <l:BlockLayoutCell width="2" titleAlignment="Begin" class="sapUiNoContentPadding sapUiMediumMarginBeginEnd" >
+         <TextArea rows="3" cols="50" maxLength="100" wrapping="None"
+           valueState="None" textAlign="Initial" placeholder="{i18n>TOL_FEEDBACK}" />
+       </l:BlockLayoutCell>
+     </l:BlockLayoutRow>
+		</l:BlockLayout>
+		<footer>
+			<OverflowToolbar width="100%" visible="true" design="Auto">
+				<ToolbarSpacer/>
+        <Button
+					text="{i18n>BTN_SKIP}"
+					type="Default"
+					iconFirst="true"
+					press="onFeedbackSkip"/>
+				<Button
+					text="{i18n>BTN_SUBMIT}"
+					type="Emphasized"
+					iconFirst="true"
+					press="onFeedbackSubmit"/>
+
+			</OverflowToolbar>
+		</footer>
+	</Page>
+
+</mvc:View>

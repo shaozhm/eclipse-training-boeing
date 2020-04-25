@@ -1,0 +1,17 @@
+<mvc:View
+	controllerName="boeing.poc.Utilization.controller.NotFound"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+
+	<MessagePage
+		title="{i18n>TIT_NOT_FOUND_PAGE_TITLE}"
+		text="{i18n>TXT_PAGE_NOT_FOUND}"
+		icon="{sap-icon://document}"
+		id="notfoundpage"
+		description="">
+		<customDescription>
+			<Link id="link" text="{i18n>TXT_GO_TO_INDEX_PAGE}" press="onLinkPressed" />
+		</customDescription>
+	</MessagePage>
+
+</mvc:View>

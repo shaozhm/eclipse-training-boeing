@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Request Assistance" type="Message">
+		<List>
+			<ActionListItem text="Create ticket" detailPress="active" press="onCreateTicketPress"/>
+			<ActionListItem text="Call EFM" />
+			<ActionListItem text="Request call back" />
+			<ActionListItem text="Cancel" detailPress="Active" press="onCancelTicketPress"/>
+		</List>
+	</Dialog>
+</core:FragmentDefinition>

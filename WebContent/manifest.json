@@ -1,0 +1,172 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "boeing.poc.Utilization",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{i18n>TIT_UTILIZATION_APP_TITLE}}",
+		"description": "{{i18n>TIT_UTILIZATION_APP_DESCRIPTION}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"dataSources": {
+		"mainService": {
+			"uri": "/com/boeing/app/gen/odata/EFM/V3/EFM.xsodata",
+			"type": "OData",
+			"settings": {
+				"odataVersion": "2.0"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "boeing.poc.Utilization.view.App",
+			"type": "XML",
+			"controlId": "app",
+			"controlAggregation": "pages"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "boeing.poc.Utilization.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings":{
+					"headers":{
+						"Authorization": "Basic VEVTVF9DT01fQk9FSU5HX0xPQ0FMX19JMzA3NDUxOldlbGNvbWUwIQ=="
+					}
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+			  "routerClass": "sap.m.routing.Router",
+			  "viewType": "XML",
+			  "viewPath": "boeing.poc.Utilization.view",
+			  "controlId": "app",
+			  "controlAggregation": "pages",
+				"bypassed": {
+					"target": "notfound"
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "starttrip",
+					"name": "startTrip",
+					"target": "startTrip"
+				},
+				{
+					"pattern": "endtrip",
+					"name": "endTrip",
+					"target": "endTrip"
+				},
+				{
+					"pattern": "feedback",
+					"name": "feedback",
+					"target": "feedback"
+				},
+			  {
+					"pattern": "",
+					"name": "main",
+					"target": "main"
+			  },
+				{
+					"pattern": "createticket/{ticketfrom}",
+					"name": "createTicket",
+					"target": "createTicket"
+				},
+				{
+					"pattern": "reservationdetail",
+					"name": "reservationDetail",
+					"target": "reservationDetail"
+				}
+			],
+			"targets": {
+			  "main": {
+					"viewName": "Main",
+					"viewId": "Main",
+					"viewLevel": 1
+			  },
+			  "startTrip": {
+				  "viewName": "StartTrip",
+					"viewId": "StartTrip",
+					"viewLevel": 2
+			  },
+			  "endTrip": {
+				  "viewName": "EndTrip",
+					"viewId": "EndTrip",
+					"viewLevel": 2
+			  },
+			  "feedback":{
+				  "viewName": "Feedback",
+					"viewId": "Feedback",
+					"viewLevel": 2
+			  },
+				"notfound": {
+					"viewName": "NotFound",
+					"viewId": "notfound"
+				},
+				"createTicket": {
+					"viewName": "CreateTicket",
+					"viewId": "CreateTicket",
+					"viewLevel": 2
+				},
+				"reservationDetail": {
+					"viewName": "ReservationDetail",
+					"viewId": "ReservationDetail",
+					"viewLevel": 2
+				}
+			}
+		}
+	}
+}

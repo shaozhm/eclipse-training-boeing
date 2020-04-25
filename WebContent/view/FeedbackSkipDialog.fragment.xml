@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Skip Feedback Form" type="Message" state="Warning" icon="sap-icon://hint">
+		<Text text="Your feedback is important. Do you really want to leave?" />
+		<buttons>
+			<Button text="Cancel"  press="onSkipCancelPress" />
+			<Button text="Skip" type="Emphasized" press="onSkipOKPress" />
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

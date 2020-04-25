@@ -1,0 +1,29 @@
+<mvc:View controllerName="boeing.poc.Utilization.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<!--Page title="{i18n>appTitle}">-->
+
+	<Page title="{i18n>TIT_RESERVATION_PAGE_TITLE}"  enableScrolling="true" >
+		<content>
+			<List>
+				<items>
+					<CustomListItem type="Active" press="handleNavigation">
+						<ObjectHeader icon="sap-icon://appointment"
+								title="R00001"
+								backgroundDesign="Transparent"
+								number="Planned"
+				      	numberState="Success">
+							<attributes>
+								<ObjectAttribute text="{i18n>LABEL_START_TIME}" />
+								<ObjectAttribute text="{i18n>LABEL_END_TIME}" />
+							</attributes>
+							<statuses>
+								<ObjectStatus text="2018-06-12 10:00" />
+								<ObjectStatus text="2018-06-12 22:00" />
+							</statuses>
+						</ObjectHeader>
+					</CustomListItem>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,44 @@
+<mvc:View controllerName="boeing.poc.Utilization.controller.EndTrip" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:data="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<Page title="{i18n>TIT_END_TRIP_PAGE_TITLE}"  enableScrolling="true" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<ObjectHeader
+				icon="sap-icon://appointment"
+				title="R00001"
+				backgroundDesign="Solid"
+				number="{path:'page>/reservationDetails/status'}"
+				numberUnit=""
+				numberState="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusState'}">
+				<attributes>
+					<ObjectAttribute text="{i18n>LABEL_GAS_USED}" />
+					<ObjectAttribute text="{i18n>LABEL_DISTANCE}" />
+					<ObjectAttribute text="{i18n>LABEL_DURING}" />
+					<ObjectAttribute text="{i18n>LABEL_STATUS}" />
+				</attributes>
+				<statuses>
+					<ObjectStatus text="{path:'page>/reservationDetails/gasUsed'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/distance'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/during'}" />
+					<ObjectStatus text="{path:'page>/reservationDetails/status'}"
+						state="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusState'}"
+						icon="{parts:[{path:'page>/reservationDetails/status'}],formatter:'.formatReservationStatusIcon'}" />
+				</statuses>
+			</ObjectHeader>
+			<List headerText="Check out list" items="{path:'checkOutList>/list'}" >
+				<InputListItem label="{checkOutList>title}">
+					<Switch state="{checkOutList>checkState}" type= "AcceptReject" change="changeSwitch"/>
+				</InputListItem>
+			</List>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button text="{i18n>BTN_REQUEST_ASSISTANCE}" type="Reject" enabled="true" press="onRequestAsstPress"/>
+				<Button text="{i18n>BTN_CHECK_OUT}" type="Emphasized" enabled="{path:'page>/checkoutButtonEnabled'}" press="onCheckOutPress"/>
+			</Toolbar>
+		</footer>
+	</Page>
+
+</mvc:View>
